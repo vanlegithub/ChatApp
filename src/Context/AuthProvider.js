@@ -11,20 +11,25 @@ export default function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   React.useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscibed = auth.onAuthStateChanged((user) => {
       console.log({ user });
       if (user) {
         const { displayName, email, uid, photoURL } = user;
-        setUser({ displayName, email, uid, photoURL });
+        setUser({
+          displayName,
+          email,
+          uid,
+          photoURL,
+        });
         setIsLoading(false);
         history.push("/");
+      } else {
+        history.push("/login");
       }
-
-      history.push("/login");
     });
 
     return () => {
-      unsubscribe();
+      unsubscibed();
     };
   }, [history]);
 
