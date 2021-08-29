@@ -2,6 +2,7 @@ import "firebase/analytics";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+
 var firebaseConfig = {
   apiKey: "AIzaSyB5ajBSBJbav4FgRXlUhNfMK8SdlaZbIXI",
   authDomain: "chatapp-vanle.firebaseapp.com",
@@ -19,3 +20,4 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 export { db, auth };
+export default firebase;

@@ -2,6 +2,7 @@ import { Spin } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { auth } from "../Firebase/config";
+
 export const AuthContext = React.createContext();
 
 export default function AuthProvider({ children }) {
