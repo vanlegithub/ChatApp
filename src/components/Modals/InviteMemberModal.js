@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import { Form, Modal, Select, Spin, Avatar } from "antd";
-import { AppContext } from "../../Context/AppProvider";
+import { Avatar, Form, Modal, Select, Spin } from "antd";
 import { debounce } from "lodash";
-import { db } from "../../Firebase/config";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../Context/AppProvider";
+import { db } from "../../firebase/config";
 
 function DebounceSelect({
   fetchOptions,
@@ -104,7 +104,7 @@ export default function InviteMemberModal() {
   return (
     <div>
       <Modal
-        title="Invite members"
+        title="INVITE MEMBERS"
         visible={isInviteMemberVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -114,9 +114,9 @@ export default function InviteMemberModal() {
           <DebounceSelect
             mode="multiple"
             name="search-user"
-            label="Name members"
+            label="NAME MEMBERS"
             value={value}
-            placeholder="Enter name members"
+            placeholder="Enter name members..."
             fetchOptions={fetchUserList}
             onChange={(newValue) => setValue(newValue)}
             style={{ width: "100%" }}

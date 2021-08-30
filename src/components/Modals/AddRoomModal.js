@@ -2,17 +2,17 @@ import { Form, Input, Modal } from "antd";
 import React, { useContext } from "react";
 import { AppContext } from "../../Context/AppProvider";
 import { AuthContext } from "../../Context/AuthProvider";
-import { addDocument } from "../../Firebase/services";
+import { addDocument } from "../../firebase/services";
 
-export default function AddRoomModals() {
+export default function AddRoomModal() {
   const { isAddRoomVisible, setIsAddRoomVisible } = useContext(AppContext);
   const {
     user: { uid },
   } = useContext(AuthContext);
   const [form] = Form.useForm();
+
   const handleOk = () => {
-    console.log({ formData: form.getFieldValue() });
-    addDocument("rooms", { ...form.getFieldValue(), members: [uid] });
+    addDocument("rooms", { ...form.getFieldsValue(), members: [uid] });
 
     form.resetFields();
 
@@ -28,17 +28,17 @@ export default function AddRoomModals() {
   return (
     <div>
       <Modal
-        title="Create room"
+        title="CREATE ROOM"
         visible={isAddRoomVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Form form={form} Layout="vertical">
-          <Form.Item lable="Room name" name="name">
-            <Input placeholder="Enter room name" />
+        <Form form={form} layout="vertical">
+          <Form.Item label="ROOM NAME" name="name">
+            <Input placeholder="Enter room name..." />
           </Form.Item>
-          <Form.Item lable="Description" name="description">
-            <Input placeholder="Enter description" />
+          <Form.Item label="DESCRIPTION" name="description">
+            <Input.TextArea placeholder="Enter description..." />
           </Form.Item>
         </Form>
       </Modal>

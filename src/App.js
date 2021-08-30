@@ -1,11 +1,11 @@
-import "./App.css";
-import Login from "./components/Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "./App.css";
 import ChatRoom from "./components/ChatRoom";
-import AuthProvider from "./Context/AuthProvider";
+import Login from "./components/Login";
+import AddRoomModal from "./components/Modals/AddRoomModal";
+import InviteMemberModal from "./components/Modals/InviteMemberModal";
 import AppProvider from "./Context/AppProvider";
-import AddRoomModals from "./components/Modals/AddRoomModals";
-import InviteMemberModals from "./components/Modals/InviteMemberModals";
+import AuthProvider from "./Context/AuthProvider";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
             <Route component={Login} path="/login" />
             <Route component={ChatRoom} path="/" />
           </Switch>
-          <AddRoomModals />
-          <InviteMemberModals />
+          <AddRoomModal />
+          <InviteMemberModal />
         </AppProvider>
       </AuthProvider>
     </BrowserRouter>

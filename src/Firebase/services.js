@@ -8,6 +8,7 @@ export const addDocument = (collection, data) => {
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
   });
 };
+
 export const generateKeywords = (displayName) => {
   const name = displayName.split(" ").filter((word) => word);
 

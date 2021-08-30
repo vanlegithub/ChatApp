@@ -1,12 +1,12 @@
 import { UserAddOutlined } from "@ant-design/icons";
+import { Alert, Avatar, Button, Form, Input, Tooltip } from "antd";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Button, Tooltip, Avatar, Form, Input, Alert } from "antd";
-import Message from "./Message";
 import { AppContext } from "../../Context/AppProvider";
-import { addDocument } from "../../Firebase/services";
 import { AuthContext } from "../../Context/AuthProvider";
+import { addDocument } from "../../firebase/services";
 import useFirestore from "../../hooks/useFirestore";
+import Message from "./Message";
 
 const HeaderStyled = styled.div`
   display: flex;
@@ -14,6 +14,7 @@ const HeaderStyled = styled.div`
   height: 56px;
   padding: 0 16px;
   align-items: center;
+  background-color: #798ea4;
   border-bottom: 1px solid rgb(230, 230, 230);
   .header {
     &__info {
@@ -134,7 +135,7 @@ export default function ChatWindow() {
                 type="text"
                 onClick={() => setIsInviteMemberVisible(true)}
               >
-                Mời
+                INVITE
               </Button>
               <Avatar.Group size="small" maxCount={2}>
                 {members.map((member) => (
@@ -167,20 +168,20 @@ export default function ChatWindow() {
                   ref={inputRef}
                   onChange={handleInputChange}
                   onPressEnter={handleOnSubmit}
-                  placeholder="Enter messages..."
+                  placeholder="Enter messages here..."
                   bordered={false}
                   autoComplete="off"
                 />
               </Form.Item>
               <Button type="primary" onClick={handleOnSubmit}>
-                Gửi
+                SEND
               </Button>
             </FormStyled>
           </ContentStyled>
         </>
       ) : (
         <Alert
-          message="Please select room"
+          message="PLEASE SELECT A ROOM"
           type="info"
           showIcon
           style={{ margin: 5 }}

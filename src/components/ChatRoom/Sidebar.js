@@ -5,10 +5,11 @@ import RoomList from "./RoomList";
 import UserInfo from "./UserInfo";
 
 const SidebarStyled = styled.div`
-  background: #3f0e40;
+  background: #22232b;
   color: white;
   height: 100vh;
 `;
+
 export default function Sidebar() {
   return (
     <SidebarStyled>

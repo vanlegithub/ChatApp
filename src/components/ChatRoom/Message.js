@@ -1,7 +1,7 @@
-import React from "react";
 import { Avatar, Typography } from "antd";
-import styled from "styled-components";
 import { formatRelative } from "date-fns/esm";
+import React from "react";
+import styled from "styled-components";
 
 const WrapperStyled = styled.div`
   margin-bottom: 10px;

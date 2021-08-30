@@ -1,7 +1,7 @@
 import { Spin } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { auth } from "../Firebase/config";
+import { auth } from "../firebase/config";
 
 export const AuthContext = React.createContext();
 
@@ -12,7 +12,6 @@ export default function AuthProvider({ children }) {
 
   React.useEffect(() => {
     const unsubscibed = auth.onAuthStateChanged((user) => {
-      console.log({ user });
       if (user) {
         const { displayName, email, uid, photoURL } = user;
         setUser({
@@ -26,6 +25,7 @@ export default function AuthProvider({ children }) {
         return;
       }
 
+      setUser({});
       setIsLoading(false);
       history.push("/login");
     });
@@ -36,10 +36,8 @@ export default function AuthProvider({ children }) {
   }, [history]);
 
   return (
-    <div>
-      <AuthContext.Provider value={{ user }}>
-        {isLoading ? <Spin /> : children}
-      </AuthContext.Provider>
-    </div>
+    <AuthContext.Provider value={{ user }}>
+      {isLoading ? <Spin style={{ position: "fixed", inset: 0 }} /> : children}
+    </AuthContext.Provider>
   );
 }
