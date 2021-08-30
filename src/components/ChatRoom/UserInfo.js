@@ -1,6 +1,7 @@
 import { Avatar, Typography, Button } from "antd";
 import React from "react";
 import styled from "styled-components";
+import { AuthContext } from "../../Context/AuthProvider";
 import { auth, db } from "../../Firebase/config";
 
 const WreapperStyled = styled.div`
@@ -15,20 +16,17 @@ const WreapperStyled = styled.div`
     }
 `;
 export default function UserInfo() {
-  React.useEffect(() => {
-    db.collection("users").onSnapshot((snapshot) => {
-      const data = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      console.log({ data, snapshot, docs: snapshot.docs });
-    });
-  });
+  const {
+    user: { displayName, photoURL },
+  } = React.useContext(AuthContext);
+
   return (
     <WreapperStyled>
       <div>
-        <Avatar>A</Avatar>
-        <Typography.Text className="username">ABC</Typography.Text>
+        <Avatar src={photoURL}>
+          {photoURL ? "" : displayName?.chartAt(0)?.toUpperCase()}
+        </Avatar>
+        <Typography.Text className="username">{displayName}</Typography.Text>
       </div>
       <Button ghost onClick={() => auth.signOut()}>
         Sign out
