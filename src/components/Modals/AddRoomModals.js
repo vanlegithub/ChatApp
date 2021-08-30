@@ -33,7 +33,7 @@ export default function AddRoomModals() {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Form form={form}>
+        <Form form={form} Layout="vertical">
           <Form.Item lable="Room name" name="name">
             <Input placeholder="Enter room name" />
           </Form.Item>
