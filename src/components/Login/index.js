@@ -39,7 +39,7 @@ export default function Login() {
         <Row>
           <Col span={12}>
             <a
-              href="https://github.com/vanlegithub"
+              href="https://github.com/vanlegithub/ChatApp"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -10,7 +10,7 @@
 - Manage chat rooms
 - Add members to chat room
 - Show member list in chat room
-- Message
+- Send message to chat room in real-time
 
 ## Dependencies - Libraries
 
