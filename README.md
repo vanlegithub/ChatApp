@@ -12,13 +12,14 @@
 
 ## Dependencies - Libraries
 
-- react@17.0.2, react-router-dom@5.2.1
-- antd@4.16.13, firebase@8.6.8, styled-components@5.3.1
-- date-fns@2.23.0, lodash@4.17.21
+- react@17.0.2, react-router-dom@5.2.0
+- antd@4.16.3, firebase@8.6.8, styled-components@5.3.0
+- date-fns@2.22.1, lodash@4.17.21, @ant-design/icons@4.6.2"
 
-## Edit - Add files
+## Edit - Add files - Note command
 
 - jsconfig.json, firebase.json, cert.pem, key.pem
+- firebase emulators:start, http://localhost:4000/
 
 ## References - Libraries
 
@@ -26,6 +27,7 @@
 - https://firebase.google.com/docs
 - https://ant.design/docs/react/introduce
 - https://styled-components.com/docs
+- https://picsum.photos/
 - https://code.visualstudio.com/docs/languages/jsconfig
 
 ## More information

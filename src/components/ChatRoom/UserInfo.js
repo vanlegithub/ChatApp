@@ -1,6 +1,7 @@
 import { Avatar, Typography, Button } from "antd";
 import React from "react";
 import styled from "styled-components";
+import { auth, db } from "../../Firebase/config";
 
 const WreapperStyled = styled.div`
     display: flex;
@@ -14,13 +15,24 @@ const WreapperStyled = styled.div`
     }
 `;
 export default function UserInfo() {
+  React.useEffect(() => {
+    db.collection("users").onSnapshot((snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      console.log({ data, snapshot, docs: snapshot.docs });
+    });
+  });
   return (
     <WreapperStyled>
       <div>
         <Avatar>A</Avatar>
         <Typography.Text className="username">ABC</Typography.Text>
       </div>
-      <Button ghost>Sign out</Button>
+      <Button ghost onClick={() => auth.signOut()}>
+        Sign out
+      </Button>
     </WreapperStyled>
   );
 }
