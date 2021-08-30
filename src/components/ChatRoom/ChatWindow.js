@@ -1,9 +1,10 @@
 import { Button, Tooltip, Avatar, Input, Form } from "antd";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserAddOutlined } from "@ant-design/icons";
 
 import Message from "./Message";
+import { AppContext } from "../../Context/AppProvider";
 
 const HeaderStyled = styled.div`
   display: flex;
@@ -59,12 +60,16 @@ const MessageListStyled = styled.div`
   overflow-y: auto;
 `;
 export default function ChatWindow() {
+  const { selectedRoom } = useContext(AppContext);
+
   return (
     <WrapperStyled>
       <HeaderStyled>
         <div className="header__infor">
-          <p className="header__title">Room1</p>
-          <span className="header__description">This is Room1</span>
+          <p className="header__title">{selectedRoom.name}</p>
+          <span className="header__description">
+            {selectedRoom.description}
+          </span>
         </div>
         <ButtonGroupStyled>
           <Button icon={<UserAddOutlined />} type="text">

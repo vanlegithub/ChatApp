@@ -2,7 +2,7 @@ import { Avatar, Typography, Button } from "antd";
 import React from "react";
 import styled from "styled-components";
 import { AuthContext } from "../../Context/AuthProvider";
-import { auth, db } from "../../Firebase/config";
+import { auth } from "../../Firebase/config";
 
 const WreapperStyled = styled.div`
     display: flex;
